@@ -1,0 +1,7 @@
+jarbas_utils
+requests_futures
+boto3
+ResponsiveVoice
+psutil
+gTTS>=2.0.3
+gTTS-token>=1.1.3
