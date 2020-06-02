@@ -13,6 +13,7 @@ class TTSFactory:
     from text2speech.modules.polly_tts import PollyTTS
     from text2speech.modules.festival_tts import FestivalTTS
     from text2speech.modules.voice_rss import VoiceRSSTTS
+    from text2speech.modules.mbrola_tts import MbrolaTTS
 
     CLASSES = {
         "mimic": Mimic,
@@ -27,6 +28,7 @@ class TTSFactory:
         "polly": PollyTTS,
         "pico": PicoTTS,
         "festival": FestivalTTS,
+        "mbrola": MbrolaTTS,
         "voicerss": VoiceRSSTTS
     }
 
