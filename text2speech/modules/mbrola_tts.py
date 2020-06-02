@@ -17,6 +17,7 @@ from voxpopuli import Voice
 from tempfile import gettempdir
 from os.path import join
 from text2speech.util import LOG
+from text2speech.visimes import ipa2arpabet
 
 
 class MbrolaTTS(TTS):
@@ -36,10 +37,14 @@ class MbrolaTTS(TTS):
         return Voice(lang=self.lang, pitch=self.pitch, speed=self.speed,
                      voice_id=self.voice_id, volume=self.volume)
 
-    def _get_phonemes(self, utterance):
+    def _get_phonemes(self, utterance, arpabet=False):
         voice = self.get_voice()
-        return [(phoneme.name, phoneme.duration) for
-                phoneme in voice.to_phonemes(utterance)]
+        if arpabet:
+            return [(ipa2arpabet(phoneme.name), phoneme.duration) for
+                    phoneme in voice.to_phonemes(utterance)]
+        else:
+            return [(phoneme.name, phoneme.duration) for
+                    phoneme in voice.to_phonemes(utterance)]
 
     def _get_wav(self, utterance, out_file=None):
         voice = self.get_voice()
@@ -67,8 +72,9 @@ class MbrolaTTS(TTS):
 
     def get_tts(self, sentence, wav_file):
         wav_file = self._get_wav(sentence, wav_file)
-        # TODO phonemes
-        return wav_file, None
+        phoneme_list = self._get_phonemes(sentence)
+        phones = " ".join([":".join(pho) for pho in phoneme_list])
+        return wav_file, phones
 
     def describe_voices(self):
         return self.get_voice().listvoices()
