@@ -6,3 +6,4 @@ psutil
 gTTS>=2.0.3
 gTTS-token>=1.1.3
 voxpopuli
+dinospeak

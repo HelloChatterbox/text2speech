@@ -14,6 +14,7 @@ class TTSFactory:
     from text2speech.modules.festival_tts import FestivalTTS
     from text2speech.modules.voice_rss import VoiceRSSTTS
     from text2speech.modules.mbrola_tts import MbrolaTTS
+    from text2speech.modules.dinospeak_tts import DinoSpeakTTS
 
     CLASSES = {
         "mimic": Mimic,
@@ -29,7 +30,8 @@ class TTSFactory:
         "pico": PicoTTS,
         "festival": FestivalTTS,
         "mbrola": MbrolaTTS,
-        "voicerss": VoiceRSSTTS
+        "voicerss": VoiceRSSTTS,
+        "dinospeak": DinoSpeakTTS
     }
 
     @staticmethod
