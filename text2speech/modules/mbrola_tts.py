@@ -33,6 +33,16 @@ class MbrolaTTS(TTS):
         self.volume = self.config.get("volume")  # float 0 - 1
         self.voice_id = self.config.get("voice_id")
 
+    def get_tts(self, sentence, wav_file):
+        wav_file = self._get_wav(sentence, wav_file)
+        #phoneme_list = self._get_phonemes(sentence)
+        #phones = " ".join([":".join(pho) for pho in phoneme_list])
+        phones = None
+        return wav_file, phones
+
+    def describe_voices(self):
+        return self.get_voice().listvoices()
+
     def get_voice(self):
         return Voice(lang=self.lang, pitch=self.pitch, speed=self.speed,
                      voice_id=self.voice_id, volume=self.volume)
@@ -54,30 +64,6 @@ class MbrolaTTS(TTS):
         with open(out_file, "wb") as wavfile:
             wavfile.write(wav)
         return out_file
-
-    def modify_tag(self, tag):
-        """Override to modify each supported ssml tag"""
-        if "%" in tag:
-            if "-" in tag:
-                val = tag.split("-")[1].split("%")[0]
-                tag = tag.replace("-", "").replace("%", "")
-                new_val = int(val) / 100
-                tag = tag.replace(val, new_val)
-            elif "+" in tag:
-                val = tag.split("+")[1].split("%")[0]
-                tag = tag.replace("+", "").replace("%", "")
-                new_val = int(val) / 100
-                tag = tag.replace(val, new_val)
-        return tag
-
-    def get_tts(self, sentence, wav_file):
-        wav_file = self._get_wav(sentence, wav_file)
-        phoneme_list = self._get_phonemes(sentence)
-        phones = " ".join([":".join(pho) for pho in phoneme_list])
-        return wav_file, phones
-
-    def describe_voices(self):
-        return self.get_voice().listvoices()
 
 
 class MbrolaValidator(TTSValidator):
