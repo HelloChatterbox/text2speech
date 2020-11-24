@@ -3,7 +3,5 @@ requests_futures
 boto3
 ResponsiveVoice
 psutil
-gTTS>=2.0.3
-gTTS-token>=1.1.3
+gTTS>=2.2.1
 voxpopuli
-dinospeak
