@@ -19,6 +19,7 @@ from ovos_utils.log import LOG
 
 import logging
 logging.getLogger('gtts.tts').setLevel(logging.CRITICAL)
+logging.getLogger("gtts.lang").setLevel(logging.CRITICAL)
 
 
 class GoogleTTS(TTS):

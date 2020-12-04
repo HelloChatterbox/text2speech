@@ -52,7 +52,7 @@ class TTSFactory:
                      tts_config.get('tts', {}).get(tts_module, {})
         clazz = TTSFactory.CLASSES.get(tts_module)
         tts = clazz(tts_config)
-        tts.validate()
+        tts.validator.validate()
         return tts
 
 

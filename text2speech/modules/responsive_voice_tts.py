@@ -28,7 +28,8 @@ class ResponsiveVoiceTTS(TTS):
                             "pitch": 0.5,
                             "rate": 0.5,
                             "vol": 1}
-        super().__init__(config, ResponsiveVoiceValidator(self), ssml_tags=[])
+        super().__init__(config, validator=ResponsiveVoiceValidator(self),
+                         ssml_tags=[])
         self.clear_cache()
         self.pitch = config.get("pitch", 0.5)
         self.rate = config.get("rate", 0.5)

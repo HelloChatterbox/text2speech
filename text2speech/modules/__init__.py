@@ -460,7 +460,11 @@ class TTSValidator(metaclass=ABCMeta):
             raise AttributeError('filename: %s is not valid!' % filename)
 
     def validate_lang(self):
-        assert self.tts.lang in self.tts.describe_voices()
+        try:
+            assert self.tts.lang in self.tts.describe_voices()
+        except:
+            assert self.tts.lang.split("-")[0] in self.tts.describe_voices()
+            self.tts.lang = self.tts.lang.split("-")[0]
 
     def validate_voice(self):
         assert self.tts.voice in self.tts.describe_voices()[self.tts.lang]

@@ -2,12 +2,12 @@ from setuptools import setup
 
 setup(
     name='text2speech',
-    version='0.1.4',
+    version='0.1.7',
     packages=['text2speech', 'text2speech.modules'],
     url='https://github.com/HelloChatterbox/text2speech',
     license='apache',
     author='jarbasAI',
-    install_requires=["ovos_utils"
+    install_requires=["ovos_utils",
                       "requests_futures",
                       "boto3",
                       "ResponsiveVoice",
