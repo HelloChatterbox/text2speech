@@ -15,7 +15,7 @@
 import subprocess
 from text2speech.visimes import VISIMES
 from text2speech.modules import TTS, TTSValidator
-from jarbas_utils.log import LOG
+from ovos_utils.log import LOG
 import distutils.spawn
 
 

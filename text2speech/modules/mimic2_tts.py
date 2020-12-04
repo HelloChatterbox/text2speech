@@ -13,10 +13,10 @@
 # limitations under the License.
 #
 from text2speech.modules import TTS, TTSValidator, RemoteTTSTimeoutException
-from jarbas_utils.log import LOG
+from ovos_utils.log import LOG
 from text2speech.visimes import VISIMES
 from text2speech.util import get_cache_directory
-from jarbas_utils.sound import play_wav
+from ovos_utils.sound import play_wav
 from requests_futures.sessions import FuturesSession
 from requests.exceptions import (
     ReadTimeout, ConnectionError, ConnectTimeout, HTTPError

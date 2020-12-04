@@ -16,7 +16,7 @@ from os.path import join, expanduser, splitext
 import os.path
 import psutil
 from stat import S_ISREG, ST_MTIME, ST_MODE, ST_SIZE
-from jarbas_utils.signal import *
+from ovos_utils.signal import *
 import os
 import time
 

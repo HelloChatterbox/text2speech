@@ -2,7 +2,7 @@ import boto3
 from botocore.exceptions import NoCredentialsError
 from text2speech.modules import TTS, TTSValidator
 import logging
-from jarbas_utils.log import LOG
+from ovos_utils.log import LOG
 
 logging.getLogger('botocore').setLevel(logging.CRITICAL)
 logging.getLogger('boto3').setLevel(logging.CRITICAL)

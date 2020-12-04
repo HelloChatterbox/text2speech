@@ -15,7 +15,7 @@
 from gtts import gTTS
 from gtts.lang import tts_langs
 from text2speech.modules import TTS, TTSValidator
-from jarbas_utils.log import LOG
+from ovos_utils.log import LOG
 
 import logging
 logging.getLogger('gtts.tts').setLevel(logging.CRITICAL)

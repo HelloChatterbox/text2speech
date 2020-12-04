@@ -1,4 +1,4 @@
-jarbas_utils
+ovos_utils
 requests_futures
 boto3
 ResponsiveVoice
