@@ -28,14 +28,14 @@ from abc import ABCMeta
 from text2speech.visimes import VISIMES
 from text2speech.bus import Message, bus as BUS
 from text2speech.util import Stopwatch
-from jarbas_utils.enclosure import EnclosureAPI
+from ovos_utils.enclosure import EnclosureAPI
 
 from text2speech.util import resolve_resource_file, get_cache_directory, \
     curate_cache, remove_last_slash
 
-from jarbas_utils.sound import play_mp3, play_wav
-from jarbas_utils.signal import check_for_signal, create_signal
-from jarbas_utils.log import LOG
+from ovos_utils.sound import play_mp3, play_wav
+from ovos_utils.signal import check_for_signal, create_signal
+from ovos_utils.log import LOG
 from queue import Queue, Empty
 from requests_futures.sessions import FuturesSession
 

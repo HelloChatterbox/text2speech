@@ -13,7 +13,7 @@
 # limitations under the License.
 #
 import requests
-from jarbas_utils.log import LOG
+from ovos_utils.log import LOG
 from text2speech.modules import TTS, TTSValidator
 from responsive_voice import ResponsiveVoice
 from responsive_voice import get_voices
