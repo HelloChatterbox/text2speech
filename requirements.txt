@@ -5,3 +5,5 @@ ResponsiveVoice
 psutil
 gTTS>=2.2.1
 voxpopuli
+# pyee pinned because of mycroft
+pyee==8.1.0
