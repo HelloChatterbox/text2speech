@@ -7,7 +7,7 @@ class TTSFactory:
     from text2speech.modules.mimic_tts import Mimic
     from text2speech.modules.spdsay_tts import SpdSay
     from text2speech.modules.ibm_tts import WatsonTTS
-    from text2speech.modules.responsive_voice_tts import ResponsiveVoice
+    from text2speech.modules.responsive_voice_tts import ResponsiveVoiceTTS
     from text2speech.modules.mimic2_tts import Mimic2
     from text2speech.modules.pico_tts import PicoTTS
     from text2speech.modules.polly_tts import PollyTTS
@@ -25,7 +25,7 @@ class TTSFactory:
         "espeak-ng": ESpeakNG,
         "spdsay": SpdSay,
         "watson": WatsonTTS,
-        "responsive_voice": ResponsiveVoice,
+        "responsive_voice": ResponsiveVoiceTTS,
         "polly": PollyTTS,
         "pico": PicoTTS,
         "festival": FestivalTTS,

@@ -47,7 +47,7 @@ PLUGIN_ENTRY_POINT = ('chatterbox_gtts_plug = '
 
 setup(
     name='text2speech',
-    version='0.1.8',
+    version='0.1.9',
     packages=['text2speech', 'text2speech.modules'],
     url='https://github.com/HelloChatterbox/text2speech',
     license='apache',
