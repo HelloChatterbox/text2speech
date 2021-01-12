@@ -47,12 +47,12 @@ PLUGIN_ENTRY_POINT = ('chatterbox_gtts_plug = '
 
 setup(
     name='text2speech',
-    version='0.1.9',
+    version='0.1.10',
     packages=['text2speech', 'text2speech.modules'],
     url='https://github.com/HelloChatterbox/text2speech',
     license='apache',
     author='jarbasAI',
-    install_requires=["ovos_utils",
+    install_requires=["ovos_utils>=0.0.5",
                       "requests_futures",
                       "boto3",
                       "ResponsiveVoice",

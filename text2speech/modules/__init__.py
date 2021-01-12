@@ -28,7 +28,7 @@ from abc import ABCMeta
 from text2speech.visimes import VISIMES
 from text2speech.bus import Message, bus as BUS
 from text2speech.util import Stopwatch
-from ovos_utils.enclosure import EnclosureAPI
+from ovos_utils.enclosure.api import EnclosureAPI
 
 from text2speech.util import resolve_resource_file, get_cache_directory, \
     curate_cache, remove_last_slash

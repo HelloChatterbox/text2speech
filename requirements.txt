@@ -1,4 +1,4 @@
-ovos_utils
+ovos_utils>=0.0.5
 requests_futures
 boto3
 ResponsiveVoice
