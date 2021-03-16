@@ -1,4 +1,4 @@
-from tts.modules.pico_tts import PicoTTS
+from text2speech.modules.pico_tts import PicoTTS
 
 tts = PicoTTS()
 tts.validate()

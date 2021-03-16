@@ -12,13 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from os.path import join, expanduser, splitext
+from os.path import join, expanduser
 import os.path
 import psutil
 from stat import S_ISREG, ST_MTIME, ST_MODE, ST_SIZE
 from ovos_utils.signal import *
 import os
-import time
 
 
 def resolve_resource_file(res_name):
@@ -157,52 +156,3 @@ def get_cache_directory(domain=None, base_path=None):
         base_path = os.path.join(tempfile.gettempdir(), "text2speech", "cache")
     return ensure_directory_exists(base_path, domain)
 
-
-class Stopwatch:
-    """
-        Simple time measuring class.
-    """
-
-    def __init__(self):
-        self.timestamp = None
-        self.time = None
-
-    def start(self):
-        """
-            Start a time measurement
-        """
-        self.timestamp = time.time()
-
-    def lap(self):
-        cur_time = time.time()
-        start_time = self.timestamp
-        self.timestamp = cur_time
-        return cur_time - start_time
-
-    def stop(self):
-        """
-            Stop a running time measurement. returns the measured time
-        """
-        cur_time = time.time()
-        start_time = self.timestamp
-        self.time = cur_time - start_time
-        return self.time
-
-    def __enter__(self):
-        """
-            Start stopwatch when entering with-block.
-        """
-        self.start()
-
-    def __exit__(self, tpe, value, tb):
-        """
-            Stop stopwatch when exiting with-block.
-        """
-        self.stop()
-
-    def __str__(self):
-        cur_time = time.time()
-        if self.timestamp:
-            return str(self.time or cur_time - self.timestamp)
-        else:
-            return 'Not started'

@@ -1,18 +1,4 @@
-# Copyright 2017 Mycroft AI Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-from text2speech.modules import TTS, TTSValidator, RemoteTTSTimeoutException
+from text2speech.modules import TTS, TTSValidator
 from ovos_utils.log import LOG
 from text2speech.visimes import VISIMES
 from text2speech.util import get_cache_directory
@@ -295,8 +281,8 @@ class Mimic2(TTS):
                 vis = results['visimes']
                 with open(wav_file, 'wb') as f:
                     f.write(audio)
-        except (ReadTimeout, ConnectionError, ConnectTimeout, HTTPError):
-            raise RemoteTTSTimeoutException(
+        except (ReadTimeout, ConnectionError, ConnectTimeout, HTTPError) as e:
+            raise ReadTimeout(
                 "Mimic 2 remote server request timedout"
             )
         return (wav_file, vis)

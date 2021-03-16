@@ -1,9 +1,9 @@
-ovos_utils>=0.0.5
+ovos_utils>=0.0.8a3
 requests_futures
 boto3
 ResponsiveVoice
 psutil
-gTTS>=2.2.1
+gTTS>=2.2.2
 voxpopuli
 # pyee pinned because of mycroft
 pyee==8.1.0
