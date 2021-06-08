@@ -8,8 +8,8 @@ from requests.exceptions import (
     ReadTimeout, ConnectionError, ConnectTimeout, HTTPError
 )
 
-from lingua_franca.format import pronounce_number
-import lingua_franca.config
+from lingua_nostra.format import pronounce_number
+import lingua_nostra.config
 
 from urllib import parse
 import math
@@ -20,7 +20,7 @@ import json
 
 max_sentence_size = 170
 
-lingua_franca.config.load_langs_on_demand = True
+lingua_nostra.config.load_langs_on_demand = True
 
 
 def break_chunks(l, n):
@@ -260,7 +260,7 @@ class Mimic2(TTS):
             LOG.exception("type error in mimic2_tts.py _normalized_numbers()")
         except ImportError:
             LOG.warning(
-                "lingua_franca not installed, can not normalize numbers")
+                "lingua_nostra not installed, can not normalize numbers")
         return sentence
 
     def get_tts(self, sentence, wav_file):

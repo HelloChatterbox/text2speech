@@ -7,4 +7,4 @@ gTTS>=2.2.2
 voxpopuli
 # pyee pinned because of mycroft
 pyee==8.1.0
-lingua_franca>=0.4.2
+lingua_nostra>=0.4.3
