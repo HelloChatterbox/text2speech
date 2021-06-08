@@ -7,6 +7,10 @@ from requests_futures.sessions import FuturesSession
 from requests.exceptions import (
     ReadTimeout, ConnectionError, ConnectTimeout, HTTPError
 )
+
+from lingua_nostra.format import pronounce_number
+import lingua_nostra.config
+
 from urllib import parse
 import math
 import base64
@@ -15,6 +19,8 @@ import re
 import json
 
 max_sentence_size = 170
+
+lingua_nostra.config.load_langs_on_demand = True
 
 
 def break_chunks(l, n):
@@ -243,10 +249,9 @@ class Mimic2(TTS):
             stf: normalized sentences to speak
         """
         try:
-            from lingua_franca.format import pronounce_number
             numbers = re.findall(r'-?\d+', sentence)
             normalized_num = [
-                (num, pronounce_number(int(num)))
+                (num, pronounce_number(int(num), lang=self.lang))
                 for num in numbers
             ]
             for num, norm_num in normalized_num:
@@ -254,7 +259,8 @@ class Mimic2(TTS):
         except TypeError:
             LOG.exception("type error in mimic2_tts.py _normalized_numbers()")
         except ImportError:
-            LOG.warning("lingua_franca not installed, can not normalize numbers")
+            LOG.warning(
+                "lingua_nostra not installed, can not normalize numbers")
         return sentence
 
     def get_tts(self, sentence, wav_file):
@@ -339,4 +345,3 @@ class Mimic2Validator(TTSValidator):
 
     def get_tts_class(self):
         return Mimic2
-
